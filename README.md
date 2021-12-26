@@ -228,3 +228,26 @@ will be able communicate to the receiving node. Each line consists of:
 The destination is the node's destination value, the publickey is used to authenticate
 messages sent by that peer. Verbs define the verbs for which the peer may send
 messages.
+
+## Closing notes
+
+remaphore can be started (either sending or receiving) concurrently
+on the same host/same configuration. Each receiving instance will
+process all messages. Be aware that only messages that are sent WHILE
+the receiving node is waiting for messages will be received. Past messages
+are lost in the void.
+
+To control critical processes, make sure to define a verb so that
+the senders that can trigger the receiver are limited to authorized
+parties only.
+
+In general, listeners should use the `-t` timeout option to prevent
+unlimited lingering. `-t 24h` is a good safeguard.
+
+Be aware that the remaphore configuration needs to be readable for
+all users that need to send or receive messages via remaphore. This
+should be used with care. It is advisable to create a group that has
+read-access to the /etc/remaphore directory in exclusion of everybody else.
+
+remaphore is an automation tool. Do not use it for chatting or file transfer
+directly.
