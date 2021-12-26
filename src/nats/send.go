@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/hex"
 	"errors"
-	"fmt"
 	"log"
 	"strings"
 	"time"
@@ -94,7 +93,6 @@ func (request *Request) Send(dest, verb, msg string, uuid ...string) error {
 	if err := conn.Publish(subject, msgOut); err != nil {
 		return err
 	}
-	fmt.Println(subject, string(msgOut))
 	return conn.Flush()
 }
 

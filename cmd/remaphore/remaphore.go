@@ -11,11 +11,11 @@ import (
 	"time"
 	"unicode"
 
+	"github.com/btcsuite/btcutil/base58"
+
 	"github.com/aurora-is-near/remaphore/src/subprocess"
 
 	"github.com/aurora-is-near/remaphore/src/protocol"
-
-	"github.com/btcsuite/btcutil/base58"
 
 	"github.com/aurora-is-near/remaphore/cmd/remaphore/util"
 	"github.com/aurora-is-near/remaphore/src/nats"
@@ -73,10 +73,12 @@ func parseArgs() {
 	}
 	if clRequestReply || clSendOnly {
 		if len(clMessage) == 0 {
-			util.ExitError(2, "-r and -s require a message to send")
+			clMessage = "ping"
+			// util.ExitError(2, "-r and -s require a message to send")
 		}
 		if len(clVerbParsed) == 0 {
-			util.ExitError(2, "-r and -s require a verb to send")
+			clVerbParsed = []string{"ping"}
+			// util.ExitError(2, "-r and -s require a verb to send")
 		}
 	}
 	if clNoFilterDest && len(clMatchDest) > 0 {
