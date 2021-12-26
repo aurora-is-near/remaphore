@@ -248,6 +248,8 @@ Be aware that the remaphore configuration needs to be readable for
 all users that need to send or receive messages via remaphore. This
 should be used with care. It is advisable to create a group that has
 read-access to the /etc/remaphore directory in exclusion of everybody else.
+Multiple remaphore configuration files (and nats credentials) can be used
+to limit the powers of users.
 
 remaphore is an automation tool. Do not use it for chatting or file transfer
 directly.
