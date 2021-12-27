@@ -14,7 +14,7 @@ Server 1 (uploader):
 
   `$ aws s3 cp bigfile s3://bucket/ && remaphore -s -u upload_done`
   
-Server 2-n (downloaders):"
+Server 2-n (downloaders):
 
   `$ remaphore -u upload_done && aws s3 cp s3://bucket/ bigfile`
   
