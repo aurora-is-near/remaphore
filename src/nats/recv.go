@@ -42,9 +42,9 @@ func (request *Request) Receive(handler HandlerFunc, matches ...protocol.MsgMatc
 				log.Printf("Message error: %s", err)
 				continue
 			}
-			if request.Config.IsSelf(msgStr.SenderPublicKey) {
-				continue
-			}
+			// if request.Config.IsSelf(msgStr.SenderPublicKey) {
+			// 	continue
+			// }
 			if msgStr.Match(request.Config, matches...) && handler != nil {
 				var reply ReplyFunc
 				if msgStr.RequestReply {
