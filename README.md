@@ -125,7 +125,7 @@ variables set:
 ```
 Only if `-d` has not been defined.
 ```
-    REMOPHORE_DESTMATCH The matched destination.
+    REMAPHORE_DESTMATCH The matched destination.
 ```
 
 By default, the output of the command will not be processed, unless the
