@@ -29,7 +29,7 @@ func Exec(ctx context.Context, config *protocol.Config, args []string, msg *prot
 		fmt.Sprintf("%s=%s", "REMAPHORE_MSG", msg.Payload),
 	}
 	if destMatches {
-		cmd.Env = append(cmd.Env, fmt.Sprintf("%s=%s", "REMOPHORE_DESTMATCH", destMatch))
+		cmd.Env = append(cmd.Env, fmt.Sprintf("%s=%s", "REMAPHORE_DESTMATCH", destMatch))
 	}
 	op1, err := cmd.CombinedOutput()
 	exitCode := cmd.ProcessState.ExitCode()
