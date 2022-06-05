@@ -184,9 +184,9 @@ func (msg *Message) encode(c *Config, isReply bool) ([]byte, error) {
 		return nil, ErrNoPrivateKey
 	}
 	msg.SendTimeNano = time.Now().UnixNano()
-	if msg.UUID == nil || len(msg.UUID) == 0 {
-		msg.UUID = NewUUID()
-	}
+	//if msg.UUID == nil || len(msg.UUID) == 0 {
+	msg.UUID = NewUUID(msg.UUID)
+	//}
 	preMsg := msg.preMsg()
 	msg.SenderSignature = ed25519.Sign(ed25519.PrivateKey(privateKey), preMsg)
 	encodedMsg := bytes.Join([][]byte{

@@ -10,7 +10,7 @@ const destSeparator = "."
 // NewUUID creates a new UUID. If the given one is too long, it will be hashed.
 // If none is given, a random one is created.
 func NewUUID(uuid ...[]byte) []byte {
-	if uuid == nil || len(uuid) == 0 || uuid[0] == nil || len(uuid) == 0 {
+	if uuid == nil || len(uuid) == 0 || uuid[0] == nil || len(uuid[0]) == 0 {
 		return RandomBytes(uuidLen)
 	}
 	if len(uuid[0]) <= uuidLen {
